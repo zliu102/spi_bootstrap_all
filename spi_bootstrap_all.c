@@ -310,21 +310,25 @@ Datum spi_bootstrap2_all(PG_FUNCTION_ARGS) {
     srand(time(NULL)); // Initialize random seed
     int j;
     for (j = 0; j < groupsContext.numGroups; j++) {
-        //elog(INFO, "SPI j is -- %d", j);
+        elog(INFO, "SPI j is -- %d", j);
         
         MyGroup *group = &groupsContext.groups[j];
         
         float4 avg_l_quantity = calculateRandomSampleAverage(group->quantities, group->count);
+        elog(INFO, "avg_l_quantity is -- %f", avg_l_quantity);
         //float4 stddev_l_quantity = calculateStandardDeviation(group->quantities, group->count, avg_l_quantity);
         //float4 avg_l_partkey = calculateRandomSampleAverage(group->partkeys, group->count);
         //float4 stddev_l_partkey = calculateStandardDeviation(group->partkeys, group->count, avg_l_partkey);
         float4 avg_l_orderkey = calculateRandomSampleAverage(group->orderkeys, group->count);
+        elog(INFO, "avg_l_orderkey is -- %f", avg_l_orderkey);
         //float4 stddev_l_orderkey = calculateStandardDeviation(group->orderkeys, group->count, avg_l_orderkey);
         float4 avg_l_extendedprice = calculateRandomSampleAverage(group->extendedprices, group->count);
+        elog(INFO, "avg_l_extendedprice is -- %f", avg_l_extendedprice);
         //float4 stddev_l_extendedprice = calculateStandardDeviation(group->extendedprices, group->count, avg_l_extendedprice);
         //float4 avg_l_discount = calculateRandomSampleAverage(group->discounts, group->count);
         //float4 stddev_l_discount = calculateStandardDeviation(group->discounts, group->count, avg_l_discount);
         float4 avg_l_linenumber = calculateRandomSampleAverage(group->linenumbers, group->count);
+        elog(INFO, "avg_l_linenumber is -- %f", avg_l_linenumber);
         //float4 stddev_l_linenumber = calculateStandardDeviation(group->linenumbers, group->count, avg_l_linenumber);
         
 
