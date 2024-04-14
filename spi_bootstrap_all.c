@@ -310,7 +310,7 @@ Datum spi_bootstrap2_all(PG_FUNCTION_ARGS) {
     srand(time(NULL)); // Initialize random seed
     int j;
     for (j = 0; j < groupsContext.numGroups; j++) {
-        elog(INFO, "SPI j is -- %d", j);
+        //elog(INFO, "SPI j is -- %d", j);
         
         MyGroup *group = &groupsContext.groups[j];
         
