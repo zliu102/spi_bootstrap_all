@@ -180,7 +180,7 @@ static void addAttributeToGroup(MyGroup *group, float4 quantity, float4 orderkey
 
 
 static float4 calculateRandomSampleAverage(float4 *quantities, int count) {
-    int sampleSize = MAX_QUANTITIES*50;
+    int sampleSize = MAX_QUANTITIES*10;
     float4 sum = 0;
     int i;
     for (i = 0; i < sampleSize; ++i) {
@@ -333,7 +333,7 @@ Datum spi_bootstrap2_all(PG_FUNCTION_ARGS) {
         
 
         Datum values[6];
-        bool nulls[6] = {false, false, false, false,false, false};
+        bool nulls[6] = {false, false, false, false, false, false};
         //elog(INFO, "l_suppkey 0 is %s", group->l_suppkey);
         //elog(INFO, "l_partkey 0 is %s", group->l_partkey);
         //values[0] = Int32GetDatum(group->l_suppkey);
