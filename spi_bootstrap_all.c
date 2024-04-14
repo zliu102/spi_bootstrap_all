@@ -59,7 +59,7 @@
 #include "miscadmin.h"
 #include "access/printtup.h"
 //#include "/home/oracle/datasets/postgres11ps/postgres-pbds/contrib/intarray/_int.h"
-#define MAX_QUANTITIES 2 
+#define MAX_QUANTITIES 5 
 #define MAX_GROUPS 799541
 #define RESAMPLE_TIMES 50
 PG_MODULE_MAGIC;
@@ -315,20 +315,20 @@ Datum spi_bootstrap2_all(PG_FUNCTION_ARGS) {
         MyGroup *group = &groupsContext.groups[j];
         
         float4 avg_l_quantity = calculateRandomSampleAverage(group->quantities, group->count);
-        elog(INFO, "avg_l_quantity is -- %f", avg_l_quantity);
+        //elog(INFO, "avg_l_quantity is -- %f", avg_l_quantity);
         //float4 stddev_l_quantity = calculateStandardDeviation(group->quantities, group->count, avg_l_quantity);
         //float4 avg_l_partkey = calculateRandomSampleAverage(group->partkeys, group->count);
         //float4 stddev_l_partkey = calculateStandardDeviation(group->partkeys, group->count, avg_l_partkey);
         float4 avg_l_orderkey = calculateRandomSampleAverage(group->orderkeys, group->count);
-        elog(INFO, "avg_l_orderkey is -- %f", avg_l_orderkey);
+        //elog(INFO, "avg_l_orderkey is -- %f", avg_l_orderkey);
         //float4 stddev_l_orderkey = calculateStandardDeviation(group->orderkeys, group->count, avg_l_orderkey);
         float4 avg_l_extendedprice = calculateRandomSampleAverage(group->extendedprices, group->count);
-        elog(INFO, "avg_l_extendedprice is -- %f", avg_l_extendedprice);
+        //elog(INFO, "avg_l_extendedprice is -- %f", avg_l_extendedprice);
         //float4 stddev_l_extendedprice = calculateStandardDeviation(group->extendedprices, group->count, avg_l_extendedprice);
         //float4 avg_l_discount = calculateRandomSampleAverage(group->discounts, group->count);
         //float4 stddev_l_discount = calculateStandardDeviation(group->discounts, group->count, avg_l_discount);
         float4 avg_l_linenumber = calculateRandomSampleAverage(group->linenumbers, group->count);
-        elog(INFO, "avg_l_linenumber is -- %f", avg_l_linenumber);
+        //elog(INFO, "avg_l_linenumber is -- %f", avg_l_linenumber);
         //float4 stddev_l_linenumber = calculateStandardDeviation(group->linenumbers, group->count, avg_l_linenumber);
         
 
@@ -339,20 +339,20 @@ Datum spi_bootstrap2_all(PG_FUNCTION_ARGS) {
         //values[0] = Int32GetDatum(group->l_suppkey);
         //values[1] = DirectFunctionCall1(float8_numeric, Float8GetDatum(group->l_tax));
         values[0] = Int32GetDatum(atoi(group->l_suppkey));
-        elog(INFO, "l_suppkey is %d", values[0]);
+        //elog(INFO, "l_suppkey is %d", values[0]);
         //values[1] = DirectFunctionCall3(numeric_in, CStringGetDatum(group->l_discount), ObjectIdGetDatum(InvalidOid), Int32GetDatum(-1));
         values[1] = Int32GetDatum(atoi(group->l_partkey));
-        elog(INFO, "l_partkey is %d", values[1]);
+        //elog(INFO, "l_partkey is %d", values[1]);
         values[2] = Float4GetDatum(avg_l_quantity);
-        elog(INFO, "avg_l_quantity is %f", values[2]);
+        //elog(INFO, "avg_l_quantity is %f", values[2]);
         //values[3] = Float4GetDatum(stddev_l_quantity);
         //values[2] = Float4GetDatum(avg_l_partkey);
         //values[3] = Float4GetDatum(stddev_l_partkey);
         values[3] = Float4GetDatum(avg_l_orderkey);
-        elog(INFO, "avg_l_orderkey is %f", values[3]);
+        //elog(INFO, "avg_l_orderkey is %f", values[3]);
         //values[7] = Float4GetDatum(stddev_l_orderkey);
         values[4] = Float4GetDatum(avg_l_extendedprice);
-        elog(INFO, "avg_l_extendedprice is %f", values[4]);
+        //elog(INFO, "avg_l_extendedprice is %f", values[4]);
         //values[5] = Float4GetDatum(stddev_l_extendedprice);
         //values[5] = Float4GetDatum(avg_l_partkey);
         //values[5] = Float4GetDatum(avg_l_discount);
@@ -360,7 +360,7 @@ Datum spi_bootstrap2_all(PG_FUNCTION_ARGS) {
         values[5] = Float4GetDatum(avg_l_linenumber);
         //values[13] = Float4GetDatum(stddev_l_linenumber);
         //elog(INFO, "l_suppkey is %d", values[0]);
-        elog(INFO, "avg_l_linenumber is %f", values[5]);
+        //elog(INFO, "avg_l_linenumber is %f", values[5]);
         
 
         tuplestore_putvalues(tupstore, tupdesc, values, nulls);
