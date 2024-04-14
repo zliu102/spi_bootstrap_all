@@ -59,7 +59,7 @@
 #include "miscadmin.h"
 #include "access/printtup.h"
 //#include "/home/oracle/datasets/postgres11ps/postgres-pbds/contrib/intarray/_int.h"
-#define MAX_QUANTITIES 5 
+#define MAX_QUANTITIES 2 
 #define MAX_GROUPS 799541
 #define RESAMPLE_TIMES 50
 PG_MODULE_MAGIC;
