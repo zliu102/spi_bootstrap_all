@@ -160,7 +160,7 @@ static int findOrCreateGroup(GroupsContext *context, char* l_suppkey, char* l_qu
 }
 
 
-static void addAttributeToGroup(MyGroup *group, float4 quantity, float4 orderkey, float4 extendedprice,float4 linenumber) {
+static void addAttributeToGroup(MyGroup *group, float4 partkey, float4 orderkey, float4 extendedprice,float4 linenumber) {
     if (group->count >= group->capacity) {
         
         group->capacity *= 2;
