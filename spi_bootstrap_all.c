@@ -146,8 +146,8 @@ static int findOrCreateGroup(GroupsContext *context, char* l_suppkey, char* l_pa
     newGroup->quantities = (float4 *) palloc(sizeof(float4) * MAX_QUANTITIES); 
     newGroup->orderkeys = (float4 *) palloc(sizeof(float4) * MAX_QUANTITIES); 
     newGroup->extendedprices = (float4 *) palloc(sizeof(float4) * MAX_QUANTITIES); 
-    newGroup->partkeys = (float4 *) palloc(sizeof(float4) * MAX_QUANTITIES); 
-    //newGroup->linenumbers = (float4 *) palloc(sizeof(float4) * MAX_QUANTITIES); 
+    //newGroup->partkeys = (float4 *) palloc(sizeof(float4) * MAX_QUANTITIES); 
+    newGroup->linenumbers = (float4 *) palloc(sizeof(float4) * MAX_QUANTITIES); 
     newGroup->count = 0;
     newGroup->capacity = MAX_QUANTITIES;
 
