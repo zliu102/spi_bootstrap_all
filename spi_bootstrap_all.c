@@ -180,7 +180,7 @@ static void addAttributeToGroup(MyGroup *group, float4 quantity, float4 orderkey
 
 
 static float4 calculateRandomSampleAverage(float4 *quantities, int count) {
-    int sampleSize = MAX_QUANTITIES*10;
+    int sampleSize = MAX_QUANTITIES*50;
     float4 sum = 0;
     int i;
     for (i = 0; i < sampleSize; ++i) {
@@ -244,7 +244,7 @@ Datum spi_bootstrap2_all(PG_FUNCTION_ARGS) {
     //TupleDescInitEntry(tupdesc, (AttrNumber) 6, "avg_l_discount", FLOAT4OID, -1, 0);
     //TupleDescInitEntry(tupdesc, (AttrNumber) 12, "std_l_discount", FLOAT4OID, -1, 0);
     //TupleDescInitEntry(tupdesc, (AttrNumber) 6, "avg_l_partkey", FLOAT4OID, -1, 0);
-    TupleDescInitEntry(tupdesc, (AttrNumber) 7, "avg_l_linenumber", FLOAT4OID, -1, 0);
+    TupleDescInitEntry(tupdesc, (AttrNumber) 6, "avg_l_linenumber", FLOAT4OID, -1, 0);
 
     
     
